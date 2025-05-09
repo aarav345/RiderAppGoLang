@@ -1,0 +1,53 @@
+# Binaries
+/bin/
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+/*.test
+*.out
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Go
+*.log
+*.tmp
+*.cache
+*.coverprofile
+*.test
+
+# Vendor directory (if not using Go modules)
+vendor/
+
+# Dependency directories (go mod tidy handles deps)
+go.sum
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Build output
+/build/
+dist/
+
+# Coverage reports
+coverage.out
+
+# Logs
+*.log
+
+# Temporary or debug files
+*.bak
+*.tmp
+*.old
+
+# Git
+.git/
