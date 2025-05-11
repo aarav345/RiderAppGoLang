@@ -25,7 +25,7 @@ func initConfig() Config {
 	return Config{
 		Postgres: types.PostgresConfig{
 			User:     getEnv("POSTGRES_USER", "postgres"),
-			Password: getEnv("POSTGRES_PASSWORD", "postgres"),
+			Password: getEnv("POSTGRES_PASSWORD", "password"),
 			Host:     getEnv("POSTGRES_HOST", "localhost"),
 			Port:     getEnv("POSTGRES_PORT", "5432"),
 			DBName:   getEnv("POSTGRES_DBNAME", "postgres"),

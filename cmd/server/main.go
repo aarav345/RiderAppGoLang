@@ -1,6 +1,7 @@
 package main
 
 import (
+	"aarav345/RiderAppGoLang.git/cmd/api"
 	"aarav345/RiderAppGoLang.git/config"
 	"aarav345/RiderAppGoLang.git/db"
 	"context"
@@ -15,8 +16,15 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to connect using pgxpool:", err)
 	}
+
 	defer pool.Close()
 	initStorage(pool)
+
+	server := api.NewApiServer(":8080", pool)
+	if err := server.Run(); err != nil {
+		log.Fatal("Failed to run the server:", err)
+	}
+	log.Println("Server stopped")
 }
 
 func initStorage(pool *pgxpool.Pool) {
