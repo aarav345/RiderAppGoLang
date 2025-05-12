@@ -21,11 +21,12 @@ test:
 
 
 migration:
-	ifndef name
-		$(error Missing migration name. User: make migration name=your_migration_name)
-	endif
-		@echo "Creating migration $(name)..."
-		@migrate create -ext sql -dir $(MIGRATE_DIR) -seq $(name)
+	@if [ -z "$(name)" ]; then \
+		echo "Missing migration name. Usage: make migration name=your_migration_name"; \
+		exit 1; \
+	fi
+	@echo "Creating migration $(name)..."
+	@migrate create -ext sql -dir $(MIGRATE_DIR) -seq $(name)
 
 
 migrate-up:
